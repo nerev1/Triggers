@@ -1,24 +1,19 @@
 public class SyncAccountsDeleteCallout implements Queueable, Database.AllowsCallouts {
 
   private List<Account> accountsForCallout;
-  private List<Account> accountsForEnableTrigger;
   private String endpoint;
 
   public SyncAccountsDeleteCallout(List<Account> accountsList) {
     this.endpoint = 'callout:First_Org_Named_Creds/services/data/v50.0/composite/sobjects?ids=';
 
     List<Id> accountsIdsForCallout = new List<Id>();
-    List<Id> accountsIdsForEnableTrigger = new List<Id>();
 
     for (Account account : accountsList) {
       if (!account.Is_Disabled_For_Trigger__c) {
         accountsIdsForCallout.add(account.Id);
-      } else {
-        accountsIdsForEnableTrigger.add(account.Id);
       }
     }
     this.accountsForCallout = this.getAccountsById(accountsIdsForCallout);
-    this.accountsForEnableTrigger = this.getAccountsById(accountsIdsForEnableTrigger);
   }
 
   public void execute(QueueableContext context) {

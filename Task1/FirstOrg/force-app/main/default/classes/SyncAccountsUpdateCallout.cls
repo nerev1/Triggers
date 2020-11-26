@@ -9,15 +9,12 @@ public class SyncAccountsUpdateCallout implements Queueable, Database.AllowsCall
 
   public void execute(QueueableContext context) {
     Map<Id, Account> accountsMapForCallout = new Map<Id, Account>();
-    Set<Id> accountsIdsForTriggerUpdate = new Set<Id>();
 
     for (Id id : this.accountsMap.keySet()) {
       if (!this.accountsMap.get(id).Is_Disabled_For_Trigger__c) {
         Account account = this.createAccount(this.accountsMap.get(id));
         account.Is_Disabled_For_Trigger__c = true;
         accountsMapForCallout.put(id, account);
-      } else {
-        accountsIdsForTriggerUpdate.add(id);
       }
     }
 
@@ -34,32 +31,6 @@ public class SyncAccountsUpdateCallout implements Queueable, Database.AllowsCall
       request.setBody(requestBody);
       HttpResponse response = http.send(request);
     }
-
-  }
-
-
-
-  private List<Account> getAccountsById(Set<Id> ids) {
-    return [SELECT Name,
-            AccountNumber,
-            Phone, 
-            BillingStreet, 
-            BillingCity, 
-            BillingCountry, 
-            BillingState, 
-            BillingPostalCode, 
-            BillingLatitude, 
-            BillingLongitude, 
-            ShippingStreet, 
-            ShippingCity, 
-            ShippingCountry, 
-            ShippingState, 
-            ShippingPostalCode, 
-            ShippingLatitude, 
-            ShippingLongitude, 
-            External_Id__c,
-            Is_Disabled_For_Trigger__c
-            FROM Account WHERE Id IN :ids];
   }
 
   private Account createAccount(Account account) {
