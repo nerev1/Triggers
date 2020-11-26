@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
     <contactEmail>nerev94@gmail.com</contactEmail>
-    <label>andersencom</label>
+    <label>First Org Connected App</label>
     <oauthConfig>
-        <callbackUrl>https://andersencom-dev-ed.my.salesforce.com/services/authcallback/andersenorg</callbackUrl>
-        <consumerKey>3MVG9fe4g9fhX0E74_5aO8Sn9U3cZ5wfJFiHyDklgR8vbqOMOMOAfjU3Wlero0QjIpY1GY2521D1I0spEyQXL</consumerKey>
+        <callbackUrl>https://andersencom-dev-ed.my.salesforce.com/services/authcallback/Second_Org_Auth_Provider</callbackUrl>
+        <consumerKey>3MVG9fe4g9fhX0E74_5aO8Sn9U7eMSc80ILPbjd5Bz4SfdaPQvVu0uFc0N8y75xJWqNDfscwbBQUoqh6d4NKg</consumerKey>
         <isAdminApproved>false</isAdminApproved>
         <isConsumerSecretOptional>false</isConsumerSecretOptional>
         <isIntrospectAllTokens>false</isIntrospectAllTokens>
