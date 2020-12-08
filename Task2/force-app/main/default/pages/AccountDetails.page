@@ -1,0 +1,32 @@
+<apex:page standardController="Account">
+  <apex:pageBlock title="Account Info">
+    <apex:pageBlockSection columns="1" collapsible="false">
+      <apex:outputField value="{! Account.Name }"/>
+      <apex:outputField value="{! Account.Phone }"/>
+      <apex:outputField value="{! Account.BillingCountry }"/>
+      <apex:outputField value="{! Account.BillingCity }"/>
+      <apex:outputField value="{! Account.BillingState }"/>
+      <apex:outputField value="{! Account.BillingStreet }"/>
+      <apex:outputField value="{! Account.BillingPostalCode }"/>
+      <apex:outputField value="{! Account.ShippingCountry }"/>
+      <apex:outputField value="{! Account.ShippingCity }"/>
+      <apex:outputField value="{! Account.ShippingState }"/>
+      <apex:outputField value="{! Account.ShippingStreet }"/>
+      <apex:outputField value="{! Account.ShippingPostalCode }"/>
+    </apex:pageBlockSection>
+  </apex:pageBlock>
+  <apex:pageBlock>
+    <apex:pageBlockSection columns="1" collapsible="false">
+      <apex:pageBlockTable value="{! Account.Contacts }" var="contact">
+        <apex:column value="{! contact.FirstName }"/>
+        <apex:column value="{! contact.LastName }"/>
+        <apex:column value="{! contact.Email }"/>
+        <apex:column value="{! contact.Phone }"/>
+        <apex:column value="{! contact.MailingCountry }"/>
+        <apex:column value="{! contact.MailingCity }"/>
+        <apex:column value="{! contact.MailingState }"/>
+        <apex:column value="{! contact.MailingStreet }"/>
+      </apex:pageBlockTable>
+    </apex:pageBlockSection>
+  </apex:pageBlock>
+</apex:page>
