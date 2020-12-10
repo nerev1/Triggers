@@ -18,6 +18,11 @@ public class AccountPDFTriggerHelper {
     Id jobId = System.enqueueJob(generatePDFJob);
   }
 
+  public static void generateAccountPDF(List<Account> accounts) {
+    AccountPDFGenerator generatePDFJob = new AccountPDFGenerator(accounts);
+    Id jobId = System.enqueueJob(generatePDFJob);
+  }
+
   public void uncheckPDFFlag() {
     if (this.accounts.size() == 0) return;
     for (Account account : this.accounts) {

@@ -15,7 +15,7 @@
       <apex:outputField value="{! Account.ShippingPostalCode }"/>
     </apex:pageBlockSection>
   </apex:pageBlock>
-  <apex:pageBlock>
+  <apex:pageBlock >
     <apex:pageBlockSection columns="1" collapsible="false">
       <apex:pageBlockTable value="{! Account.Contacts }" var="contact">
         <apex:column value="{! contact.FirstName }"/>
