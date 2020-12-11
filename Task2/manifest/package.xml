@@ -25,5 +25,9 @@
         <members>createAccountPDFButton</members>
         <name>LightningComponentBundle</name>
     </types>
+    <types>
+        <members>Account.Create_PDF</members>
+        <name>QuickAction</name>
+    </types>
     <version>50.0</version>
 </Package>
